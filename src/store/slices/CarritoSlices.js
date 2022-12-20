@@ -11,7 +11,7 @@ export const CarritoSlices = createSlice({
 
     addToCart: (state, { payload }) => {
 
-      const productExistente = state.findIndex((product) => product.id === payload.id);
+      const productExistente = state.findIndex((product) => product._id === payload._id);
 
       if (productExistente >= 0) {
         state[productExistente].cantidad += 1;
@@ -24,11 +24,11 @@ export const CarritoSlices = createSlice({
     },
     removeCart: (state, { payload }) => {
 
-      const product = state.findIndex((product) => product.id === payload.id);
+      const product = state.findIndex((product) => product._id === payload._id);
 
       if (state[product].cantidad < 2) {
         
-        const newValor = state.filter((valor) => valor.id !== state[product].id);
+        const newValor = state.filter((valor) => valor._id !== state[product]._id);
         
         localStorage.setItem("cartItems", JSON.stringify(newValor));
 
@@ -50,7 +50,7 @@ export const CarritoSlices = createSlice({
     },
     removeItemsCart: (state, { payload }) => {
 
-      const newValor = state.filter((product) => product.id !== payload.id);
+      const newValor = state.filter((product) => product._id !== payload._id);
         
       localStorage.setItem("cartItems", JSON.stringify(newValor));
       

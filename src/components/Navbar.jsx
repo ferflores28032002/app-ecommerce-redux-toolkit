@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { BiShoppingBag } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Cart } from "./Cart";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const cart = useSelector(state => state.cart)
 
   window.addEventListener("scroll", () => {
     document
@@ -14,6 +16,7 @@ export const Navbar = () => {
 
   return (
     <header className="fixed left-0 top-0 py-3 min-w-full z-50">
+      
       <Cart
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -44,9 +47,9 @@ export const Navbar = () => {
         <button className="relative" onClick={() => setIsOpen(!isOpen)}>
           <BiShoppingBag className="btn-shopping text-3xl text-white" />
 
-          <span
-            className="cart-shopping absolute -right-1 top-0 bg-white text-yellow-600 font-semibold rounded-full w-5 h-5 text-sm"
-          >1</span>
+          <span className="cart-shopping absolute -right-1 top-0 bg-white text-yellow-600 font-semibold rounded-full w-5 h-5 text-sm">
+            {cart.length}
+          </span>
         </button>
       </div>
     </header>

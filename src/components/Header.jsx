@@ -1,8 +1,8 @@
-import imagen from "../assets/bgLogo2.jpg";
-import { Navbar } from "./Navbar";
 import Typed from "react-typed";
-import { HiOutlineArrowSmDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { Navbar } from "./Navbar";
+import imagen from "../assets/bgLogo2.jpg";
+import { HiOutlineArrowSmDown } from "react-icons/hi";
 
 export const Header = () => {
   return (
@@ -22,7 +22,10 @@ export const Header = () => {
 
             <div className="flex gap-6 justify-center items-center mt-2">
               <Link to="/">
-                <img src={`shopping-bags.png`} className="w-40 lg:w-32 animate-pulse" />
+                <img
+                  src={`shopping-bags.png`}
+                  className="w-40 lg:w-32 animate-pulse"
+                />
               </Link>
               <div>
                 <h1 className="mt-4 text-sm lg:text-3xl font-semibold">
@@ -50,6 +53,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };
