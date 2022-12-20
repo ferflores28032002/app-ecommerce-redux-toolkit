@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*, input {
+    font-family: 'montserrat', sans-serif;
+}
+
+
+.ClaseScroll {
+    background: #ffffff;
+    transition: all .6s;
+}
+
+header.ClaseScroll .btn-shopping {
+    color: #eab308;
+}
+header.ClaseScroll .cart-shopping {
+    color: white;
+    background:#eab308 ;
+}
