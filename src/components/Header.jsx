@@ -22,14 +22,14 @@ export const Header = () => {
 
             <div className="flex gap-6 justify-center items-center mt-2">
               <Link to="/">
-                <img src={`shopping-bags.png`} className="w-32 animate-pulse" />
+                <img src={`shopping-bags.png`} className="w-40 lg:w-32 animate-pulse" />
               </Link>
               <div>
-                <h1 className="mt-4 text-2xl  lg:text-3xl font-semibold">
+                <h1 className="mt-4 text-sm lg:text-3xl font-semibold">
                   Get up to <span className="text-yellow-400">30%</span> off new
                   arrivals
                 </h1>
-                <div className="flex text-2xl font-semibold gap-4">
+                <div className="flex text-sm lg:text-2xl font-semibold gap-4">
                   <div>
                     <Typed
                       className="text-yellow-400 "
@@ -43,8 +43,8 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <button className="text-4xl p-4 animate-bounce mt-16 border-none bg-yellow-500 rounded-full shadow-2xl">
+          <div className="text-start md:text-center">
+            <button className="text-2xl md:text-4xl p-4 animate-bounce mt-16 border-none bg-yellow-500 rounded-full shadow-2xl">
               <HiOutlineArrowSmDown />
             </button>
           </div>
