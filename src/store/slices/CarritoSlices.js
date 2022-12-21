@@ -50,7 +50,8 @@ export const CarritoSlices = createSlice({
     },
     removeItemsCart: (state, { payload }) => {
 
-      const newValor = state.filter((product) => product._id !== payload._id);
+
+      const newValor = state.filter((product) => product._id !== payload);
         
       localStorage.setItem("cartItems", JSON.stringify(newValor));
       

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { BiShoppingBag } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Cart } from "./Cart";
+import { FiDelete } from "react-icons/fi";
+import { removeItemsCart } from "../store/slices/CarritoSlices";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart);
 
   window.addEventListener("scroll", () => {
@@ -27,10 +30,18 @@ export const Navbar = () => {
             {cart?.map((carrito) => (
               <div key={carrito._id}>
                 <div className="flex py-4 gap-3 border-b">
-                  <img className="w-20 h-24 rounded-lg" src={carrito.image_logo} />
+                  <img
+                    className="w-20 h-24 rounded-lg"
+                    src={carrito.image_logo}
+                  />
 
                   <div>
-                    <p className="text-sm">{carrito.name}</p>
+                    <div className="flex justify-between  w-72">
+                      <div className="text-sm">{carrito.name}</div>
+                      <button onClick={() => dispatch( removeItemsCart( carrito._id ))}>
+                        <FiDelete />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
