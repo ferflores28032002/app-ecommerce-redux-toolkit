@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Cart } from "./Cart";
 import { FiDelete } from "react-icons/fi";
-import { removeItemsCart } from "../store/slices/CarritoSlices";
+import { BsPlus } from "react-icons/bs";
+import { HiMinusSm } from "react-icons/hi";
+import { addToCart, removeCart, removeItemsCart } from "../store/slices/CarritoSlices";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -36,12 +38,28 @@ export const Navbar = () => {
                   />
 
                   <div>
+
                     <div className="flex justify-between  w-72">
                       <div className="text-sm">{carrito.name}</div>
                       <button onClick={() => dispatch( removeItemsCart( carrito._id ))}>
                         <FiDelete />
                       </button>
                     </div>
+
+                    <div>
+                        <div className="flex mt-1 text-sm">
+                          <h1>${carrito.price + '  x  ' + carrito.cantidad + ' = ' + (carrito.price*carrito.cantidad).toFixed(2)}</h1>
+                        </div>
+                    </div>
+
+                    <div>
+                      <div className="flex gap-6 py-1 mt-3 rounded border w-24 items-center justify-center">
+                        <button onClick={() => dispatch( addToCart(carrito))} ><BsPlus className="text-xl"/> </button>
+                        <button onClick={() => dispatch( removeCart(carrito._id))}><HiMinusSm className="text-xl"/></button>
+                      </div>
+                    </div>
+
+
                   </div>
                 </div>
               </div>

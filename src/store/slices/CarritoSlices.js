@@ -24,7 +24,7 @@ export const CarritoSlices = createSlice({
     },
     removeCart: (state, { payload }) => {
 
-      const product = state.findIndex((product) => product._id === payload._id);
+      const product = state.findIndex((product) => product._id === payload);
 
       if (state[product].cantidad < 2) {
         
