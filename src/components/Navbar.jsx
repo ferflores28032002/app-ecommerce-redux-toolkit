@@ -6,7 +6,7 @@ import { Cart } from "./Cart";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const cart = useSelector(state => state.cart)
+  const cart = useSelector((state) => state.cart);
 
   window.addEventListener("scroll", () => {
     document
@@ -16,14 +16,27 @@ export const Navbar = () => {
 
   return (
     <header className="fixed header left-0 top-0 py-3 min-w-full z-50">
-      
       <Cart
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         inicialP="-right-full"
         finallyP="right-0"
       >
-        <div className="py-4 px-3 h-[70%]  overflow-y-scroll "></div>
+        <div className="py-4 px-3 h-[70%]  overflow-y-scroll ">
+          <div>
+            {cart?.map((carrito) => (
+              <div key={carrito._id}>
+                <div className="flex py-4 gap-3 border-b">
+                  <img className="w-20 h-24 rounded-lg" src={carrito.image_logo} />
+
+                  <div>
+                    <p className="text-sm">{carrito.name}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="p-3">
           <div className="flex text-sm items-center justify-between ">
