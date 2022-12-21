@@ -10,12 +10,12 @@ export const Navbar = () => {
 
   window.addEventListener("scroll", () => {
     document
-      .querySelector("header")
+      .querySelector(".header")
       .classList.toggle("ClaseScroll", window.scrollY > 30);
   });
 
   return (
-    <header className="fixed left-0 top-0 py-3 min-w-full z-50">
+    <header className="fixed header left-0 top-0 py-3 min-w-full z-50">
       
       <Cart
         isOpen={isOpen}
