@@ -6,12 +6,22 @@ import { Cart } from "./Cart";
 import { FiDelete } from "react-icons/fi";
 import { BsPlus } from "react-icons/bs";
 import { HiMinusSm } from "react-icons/hi";
-import { addToCart, removeCart, removeItemsCart } from "../store/slices/CarritoSlices";
+import { MdDelete } from "react-icons/md";
+import {
+  addToCart,
+  removeCart,
+  removeItemsCart,
+  vaciarCart,
+} from "../store/slices/CarritoSlices";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const total = cart.reduce(
+    (contador, product) => contador + product.price * product.cantidad,
+    0
+  );
 
   window.addEventListener("scroll", () => {
     document
@@ -24,6 +34,7 @@ export const Navbar = () => {
       <Cart
         isOpen={isOpen}
         setIsOpen={setIsOpen}
+        lenght={cart.length}
         inicialP="-right-full"
         finallyP="right-0"
       >
@@ -38,28 +49,40 @@ export const Navbar = () => {
                   />
 
                   <div>
-
                     <div className="flex justify-between  w-72">
                       <div className="text-sm">{carrito.name}</div>
-                      <button onClick={() => dispatch( removeItemsCart( carrito._id ))}>
+                      <button
+                        onClick={() => dispatch(removeItemsCart(carrito._id))}
+                      >
                         <FiDelete />
                       </button>
                     </div>
 
                     <div>
-                        <div className="flex mt-1 text-sm">
-                          <h1>${carrito.price + '  x  ' + carrito.cantidad + ' = ' + (carrito.price*carrito.cantidad).toFixed(2)}</h1>
-                        </div>
+                      <div className="flex mt-1 text-sm">
+                        <h1>
+                          $
+                          {carrito.price +
+                            "  x  " +
+                            carrito.cantidad +
+                            " = " +
+                            (carrito.price * carrito.cantidad).toFixed(2)}
+                        </h1>
+                      </div>
                     </div>
 
                     <div>
                       <div className="flex gap-6 py-1 mt-3 rounded border w-24 items-center justify-center">
-                        <button onClick={() => dispatch( addToCart(carrito))} ><BsPlus className="text-xl"/> </button>
-                        <button onClick={() => dispatch( removeCart(carrito._id))}><HiMinusSm className="text-xl"/></button>
+                        <button onClick={() => dispatch(addToCart(carrito))}>
+                          <BsPlus className="text-xl" />{" "}
+                        </button>
+                        <button
+                          onClick={() => dispatch(removeCart(carrito._id))}
+                        >
+                          <HiMinusSm className="text-xl" />
+                        </button>
                       </div>
                     </div>
-
-
                   </div>
                 </div>
               </div>
@@ -69,14 +92,19 @@ export const Navbar = () => {
 
         <div className="p-3">
           <div className="flex text-sm items-center justify-between ">
-            <h1>SubTotal: </h1>
-            <strong>C$ 578.56</strong>
+            <h1>Total: $ {total.toFixed(2)} </h1>
+            <button
+              onClick={() => dispatch(vaciarCart())}
+              className="p-1 mr-2  bg-red-300 text-white"
+            >
+              <MdDelete className="text-xl" />
+            </button>
           </div>
-          <button className="block w-full mt-2 py-2 px-4 text-center text-white bg-red-400 rounded ">
-            Save
+          <button className="block text-sm w-full mt-2 py-2 px-4 text-center text-white bg-red-300 rounded ">
+            view cart
           </button>
-          <button className="block w-full py-2 px-4 text-center text-white bg-indigo-500 mt-2 rounded ">
-            Remove
+          <button className="block w-full py-2 px-4 text-center text-white bg-yellow-500 mt-2 rounded ">
+            checkout
           </button>
         </div>
       </Cart>

@@ -22,7 +22,7 @@ export const ShoesSlider = () => {
         slidesPerView={5}
         spaceBetween={10}
         modules={[Autoplay]}
-        autoplay={{ delay: 1200 }}
+        autoplay={{ delay: 1600 }}
         breakpoints={{
           0: {
             spaceBetween: 10,
@@ -47,8 +47,8 @@ export const ShoesSlider = () => {
         }}
       >
         {data?.data?.productos?.map((img, i) => (
-          <SwiperSlide className="shadow-lg border" key={i}>
-            <div className="relative">
+          <SwiperSlide className="shadow-lg border rounded" key={i}>
+            <div className="relative rounded">
               <img src={img.image_logo} />
               <div className="absolute px-2 flex  justify-between w-full pb-3 leading-10 left-0 bottom-0">
                 <div className="text-sm">

@@ -10,7 +10,7 @@ export const ProductsItems = ({ product }) => {
 
   return (
     <div
-      className="relative border shadow bg-white flex flex-col gap-2 rounded w-96 h-[36rem] lg:w-72 lg:h-[27rem] group transition overflow-hidden"
+      className="relative shadow bg-white flex flex-col gap-2 rounded w-96 h-[36rem] lg:w-72 lg:h-[27rem] group transition overflow-hidden"
       key={product._id}
     >
       <img
