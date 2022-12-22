@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { productsId } from "../api/ProductsEcommerce";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs, EffectFade, Autoplay } from "swiper";
 import "swiper/css/bundle";
 

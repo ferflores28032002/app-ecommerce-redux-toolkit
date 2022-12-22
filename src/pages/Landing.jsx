@@ -1,4 +1,4 @@
-import { Header, Products } from "../components"
+import { Header, Products, ShoesSlider } from "../components"
 
 
 
@@ -7,6 +7,7 @@ export const Landing = () => {
     <>
         <Header />
         <Products/>
+        <ShoesSlider />
     
     </>
   )

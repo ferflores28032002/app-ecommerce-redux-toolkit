@@ -1,8 +1,8 @@
-import { AiFillEye } from "react-icons/ai";
 import { BsPlus, BsStarHalf } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../store/slices/CarritoSlices";
+import { AiFillEye } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 
 export const ProductsItems = ({ product }) => {
@@ -10,7 +10,7 @@ export const ProductsItems = ({ product }) => {
 
   return (
     <div
-      className="relative border shadow flex flex-col gap-2 rounded w-96 h-[36rem] lg:w-72 lg:h-[27rem] group transition overflow-hidden"
+      className="relative border shadow bg-white flex flex-col gap-2 rounded w-96 h-[36rem] lg:w-72 lg:h-[27rem] group transition overflow-hidden"
       key={product._id}
     >
       <img
