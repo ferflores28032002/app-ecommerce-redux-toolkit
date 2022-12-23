@@ -38,7 +38,7 @@ export const Navbar = () => {
         inicialP="-right-full"
         finallyP="right-0"
       >
-        <div className="py-4 px-3 h-[70%]  overflow-y-scroll ">
+        <div className="py-4 px-3 h-[70%] overflow-y-scroll ">
           <div>
             {cart?.map((carrito) => (
               <div key={carrito._id}>
@@ -90,12 +90,12 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div className="p-3">
-          <div className="flex text-sm items-center justify-between ">
+        <div className="p-3 border-t">
+          <div className="flex text-sm  items-center justify-between ">
             <h1>Total: $ {total.toFixed(2)} </h1>
             <button
               onClick={() => dispatch(vaciarCart())}
-              className="p-1 mr-2  bg-red-300 text-white"
+              className="p-1 mr-2 rounded  bg-red-300 text-white"
             >
               <MdDelete className="text-xl" />
             </button>

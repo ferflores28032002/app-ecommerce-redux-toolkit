@@ -28,11 +28,11 @@ export const Header = () => {
                 />
               </Link>
               <div>
-                <h1 className="mt-4 text-sm lg:text-3xl font-semibold">
+                <h1 className="mt-4 text-xl lg:text-3xl font-semibold">
                   Get up to <span className="text-yellow-400">30%</span> off new
                   arrivals
                 </h1>
-                <div className="flex text-sm lg:text-2xl font-semibold gap-4">
+                <div className="flex text-xl lg:text-2xl font-semibold gap-4">
                   <div>
                     <Typed
                       className="text-yellow-400 "
