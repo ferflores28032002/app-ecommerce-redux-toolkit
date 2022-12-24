@@ -5,7 +5,7 @@ import {
   removeItemsCart,
   vaciarCart,
 } from "../store/slices/CarritoSlices";
-import { Cart } from "./Cart";
+import { Cart, ButtonStripe } from "./";
 import { FiDelete } from "react-icons/fi";
 import { BsPlus } from "react-icons/bs";
 import { HiMinusSm } from "react-icons/hi";
@@ -88,9 +88,7 @@ export const CartItems = () => {
         <button className="block text-sm w-full mt-2 py-2 px-4 text-center text-white bg-red-300 rounded ">
           view cart
         </button>
-        <button className="block w-full py-2 px-4 text-center text-white bg-yellow-500 mt-2 rounded ">
-          checkout
-        </button>
+              <ButtonStripe />            
       </div>
 
     </Cart>
