@@ -1,4 +1,5 @@
 import { HiOutlineArrowSmRight } from "react-icons/hi";
+import { useDispatch } from "react-redux";
 
 export const Cart = ({
   isOpen,
@@ -8,6 +9,7 @@ export const Cart = ({
   children,
   lenght,
 }) => {
+  const dispatch = useDispatch();
   return (
     <div
       className={`fixed top-0 ${
@@ -17,7 +19,7 @@ export const Cart = ({
       <header className="py-4 px-3 flex justify-between items-center border-b ">
         <h1 className="text-sm ">Shopping Cart ({lenght ? lenght : 0})</h1>
 
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button onClick={() => dispatch(setIsOpen())}>
           <HiOutlineArrowSmRight className="text-2xl" />
         </button>
       </header>

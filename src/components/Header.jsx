@@ -1,10 +1,11 @@
 import Typed from "react-typed";
 import { Link } from "react-router-dom";
 import { Navbar } from "./Navbar";
-import imagen from "../assets/bgLogo2.jpg";
 import { HiOutlineArrowSmDown } from "react-icons/hi";
+import imagen from "../assets/bgLogo2.jpg";
 
 export const Header = () => {
+  
   return (
     <div>
       <Navbar />
