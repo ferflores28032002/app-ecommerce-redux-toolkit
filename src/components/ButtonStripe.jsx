@@ -12,6 +12,7 @@ export const ButtonStripe = () => {
     if(data.URL) {
       window.location = data.URL
     }
+    console.log(data)
   }
 
   return (
