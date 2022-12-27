@@ -8,9 +8,15 @@ export const ButtonStripe = () => {
 
   const sendProducts = async () => {
     try {
+      const config = {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+        }
+      };
       const { data } = await ecommerce.post("/create-checkout-session", {
         cart,
-      });
+      }, config);
 
       if (data.URL) {
         window.location.href = data.URL;
